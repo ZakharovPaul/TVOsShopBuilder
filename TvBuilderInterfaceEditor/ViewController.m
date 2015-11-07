@@ -25,18 +25,18 @@
      [self.headerView setWantsLayer:YES];
      [self.footerView setWantsLayer:YES];
     
-    [self.centralView.layer setBackgroundColor:[NSColor cyanColor].CGColor];
-    [self.leftView.layer setBackgroundColor:[NSColor lightGrayColor].CGColor];
-    [self.rightView.layer setBackgroundColor:[NSColor lightGrayColor].CGColor];
-    [self.footerView.layer setBackgroundColor:[NSColor greenColor].CGColor];
-    [self.headerView.layer setBackgroundColor:[NSColor greenColor].CGColor];
+    [self.centralView.layer setBackgroundColor:CGColorCreateGenericRGB(0.104, 0.53, 0.23, 0.203)];
+    [self.leftView.layer setBackgroundColor:CGColorCreateGenericRGB(0.252, 0.255, 0.239, 0.203)];
+    [self.rightView.layer setBackgroundColor:CGColorCreateGenericRGB(0.252, 0.255, 0.239, 0.203)];
+    [self.footerView.layer setBackgroundColor:CGColorCreateGenericRGB(0.193, 0.216, 0.225, 0.203)];
+    [self.headerView.layer setBackgroundColor:CGColorCreateGenericRGB(0.193, 0.216, 0.225, 0.203)];
 
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)centralViewOnClick:(NSClickGestureRecognizer *)sender {
     if(!self.centralViewSelected){
-    [self.centralView.layer setBorderColor:[NSColor blueColor].CGColor];
+    [self.centralView.layer setBorderColor:CGColorCreateGenericRGB(0.52, 0.54, 0.45, 0.803)];
     [self.centralView.layer setBorderWidth:3];
         self.centralViewSelected = YES;
     } else {
@@ -48,7 +48,7 @@
 
 - (IBAction)leftViewOnClick:(NSClickGestureRecognizer *)sender {
     if(!self.leftViewSelected){
-        [self.leftView.layer setBorderColor:[NSColor blueColor].CGColor];
+        [self.leftView.layer setBorderColor:CGColorCreateGenericRGB(0.52, 0.54, 0.45, 0.803)];
         [self.leftView.layer setBorderWidth:3];
         self.leftViewSelected = YES;
     } else {
@@ -60,7 +60,7 @@
 
 - (IBAction)footerViewOnClick:(NSClickGestureRecognizer *)sender {
     if(!self.footerViewSelected){
-        [self.footerView.layer setBorderColor:[NSColor blueColor].CGColor];
+        [self.footerView.layer setBorderColor:CGColorCreateGenericRGB(0.52, 0.54, 0.45, 0.803)];
         [self.footerView.layer setBorderWidth:3];
         self.footerViewSelected = YES;
     } else {
@@ -72,7 +72,7 @@
 
 - (IBAction)rightViewOnClick:(id)sender {
     if(!self.rightViewSelected){
-        [self.rightView.layer setBorderColor:[NSColor blueColor].CGColor];
+        [self.rightView.layer setBorderColor:CGColorCreateGenericRGB(0.52, 0.54, 0.45, 0.803)];
         [self.rightView.layer setBorderWidth:3];
         self.rightViewSelected = YES;
     } else {
@@ -84,7 +84,7 @@
 
 - (IBAction)headerViewOnClick:(id)sender {
     if(!self.headerViewSelected){
-        [self.headerView.layer setBorderColor:[NSColor blueColor].CGColor];
+        [self.headerView.layer setBorderColor:CGColorCreateGenericRGB(0.52, 0.54, 0.45, 0.803)];
         [self.headerView.layer setBorderWidth:3];
         self.headerViewSelected = YES;
     } else {

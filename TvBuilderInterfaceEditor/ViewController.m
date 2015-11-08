@@ -337,16 +337,15 @@
     }
     if (self.footerViewSelected)
     {
-        self.bottomCollapsed = [NSLayoutConstraint constraintWithItem:self.footerView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
+        self.bottomCollapsed = [NSLayoutConstraint constraintWithItem:self.footerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
         [self.footerView addConstraint: self.bottomCollapsed];
     }
     if (self.headerViewSelected)
     {
-         self.bottomCollapsed = [NSLayoutConstraint constraintWithItem:self.headerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
-        [self.headerView addConstraint:self.bottomCollapsed];
+         self.topCollapsed = [NSLayoutConstraint constraintWithItem:self.headerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
+        [self.headerView addConstraint:self.topCollapsed];
     }
-
-
+    [self.view layoutSubtreeIfNeeded];
 }
 
 

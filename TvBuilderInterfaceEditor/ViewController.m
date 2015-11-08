@@ -332,7 +332,7 @@
     }
     if (self.rightViewSelected)
     {
-        self.rightCollapsed = [NSLayoutConstraint constraintWithItem:self.rightView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
+        self.rightCollapsed = [NSLayoutConstraint constraintWithItem:self.rightView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0.0];
         [self.rightView addConstraint:self.rightCollapsed];
     }
     if (self.footerViewSelected)

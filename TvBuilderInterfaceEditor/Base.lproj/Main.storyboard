@@ -95,7 +95,7 @@
                                         </menuItem>
                                         <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
                                             <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
+                                                <action selector="saveAssButtonPressed:" target="Voe-Tx-rLC" id="6Rq-P7-KvN"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Revert to Saved" id="KaW-ft-85H">
@@ -676,9 +676,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="r6r-Bn-hFK">
-                                <rect key="frame" x="0.0" y="30" width="100" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="540"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4hF-qN-2lg"/>
+                                    <constraint firstAttribute="width" priority="750" constant="100" id="4hF-qN-2lg"/>
                                 </constraints>
                                 <gestureRecognizers>
                                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="lp0-YV-VoM">
@@ -691,11 +691,17 @@
                                             <action selector="LeftViewOnPan:" target="XfG-lQ-9wD" id="tVi-DW-eva"/>
                                         </connections>
                                     </panGestureRecognizer>
+                                    <clickGestureRecognizer delaysSecondaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="1XV-Qg-TAT" userLabel="Right Click Gesture Recognizer">
+                                        <buttonMask key="buttonMask" secondary="YES"/>
+                                        <connections>
+                                            <action selector="RightClickLeftView:" target="XfG-lQ-9wD" id="sZe-Bz-dYO"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
                                 </gestureRecognizers>
                                 <animations/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ii9-No-YBL">
-                                <rect key="frame" x="860" y="30" width="100" height="480"/>
+                                <rect key="frame" x="860" y="0.0" width="100" height="540"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="cV9-PD-tky"/>
                                 </constraints>
@@ -710,30 +716,17 @@
                                             <action selector="rightViewOnPan:" target="XfG-lQ-9wD" id="eJR-HH-trI"/>
                                         </connections>
                                     </panGestureRecognizer>
-                                </gestureRecognizers>
-                                <animations/>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="O7O-1Q-c3r">
-                                <rect key="frame" x="0.0" y="410" width="960" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="XW4-q3-dna"/>
-                                </constraints>
-                                <gestureRecognizers>
-                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="IdU-9W-nkG">
+                                    <clickGestureRecognizer delaysSecondaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="nM4-Pj-c6s">
+                                        <buttonMask key="buttonMask" secondary="YES"/>
                                         <connections>
-                                            <action selector="headerViewOnClick:" target="XfG-lQ-9wD" id="nAJ-mO-cTo"/>
+                                            <action selector="rightClickRightView:" target="XfG-lQ-9wD" id="E3B-mF-XTu"/>
                                         </connections>
                                     </clickGestureRecognizer>
-                                    <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="eRe-9n-I7F">
-                                        <connections>
-                                            <action selector="headerViewOnPan:" target="XfG-lQ-9wD" id="TRr-ve-fOG"/>
-                                        </connections>
-                                    </panGestureRecognizer>
                                 </gestureRecognizers>
                                 <animations/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="61C-7O-sh3">
-                                <rect key="frame" x="100" y="130" width="760" height="280"/>
+                                <rect key="frame" x="100" y="100" width="760" height="340"/>
                                 <gestureRecognizers>
                                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="X64-nh-acS">
                                         <connections>
@@ -749,7 +742,7 @@
                                 <animations/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="NPZ-nS-kbQ">
-                                <rect key="frame" x="0.0" y="30" width="960" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="caG-EE-e43"/>
                                 </constraints>
@@ -757,6 +750,12 @@
                                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="qE3-qf-CzE">
                                         <connections>
                                             <action selector="footerViewOnClick:" target="XfG-lQ-9wD" id="sfE-A7-cN1"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                    <clickGestureRecognizer delaysSecondaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="kCg-yw-dR5">
+                                        <buttonMask key="buttonMask" secondary="YES"/>
+                                        <connections>
+                                            <action selector="rightClickFooterView:" target="XfG-lQ-9wD" id="CAl-yV-mko"/>
                                         </connections>
                                     </clickGestureRecognizer>
                                     <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="9Dr-D5-rZ0">
@@ -767,37 +766,71 @@
                                 </gestureRecognizers>
                                 <animations/>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="O7O-1Q-c3r">
+                                <rect key="frame" x="0.0" y="440" width="960" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="XW4-q3-dna"/>
+                                </constraints>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="IdU-9W-nkG">
+                                        <connections>
+                                            <action selector="headerViewOnClick:" target="XfG-lQ-9wD" id="nAJ-mO-cTo"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                    <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="eRe-9n-I7F">
+                                        <connections>
+                                            <action selector="headerViewOnPan:" target="XfG-lQ-9wD" id="TRr-ve-fOG"/>
+                                        </connections>
+                                    </panGestureRecognizer>
+                                    <clickGestureRecognizer delaysSecondaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="sPR-zL-ui5">
+                                        <buttonMask key="buttonMask" secondary="YES"/>
+                                        <connections>
+                                            <action selector="rightClickHeaderView:" target="XfG-lQ-9wD" id="REi-iT-Mrm"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
+                                <animations/>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="NPZ-nS-kbQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="01d-YU-t79"/>
-                            <constraint firstAttribute="bottom" secondItem="ii9-No-YBL" secondAttribute="bottom" constant="30" id="315-EY-Mz0"/>
-                            <constraint firstItem="61C-7O-sh3" firstAttribute="top" secondItem="O7O-1Q-c3r" secondAttribute="bottom" id="DZz-y1-fXe"/>
-                            <constraint firstItem="r6r-Bn-hFK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="MCR-Ui-1Wk"/>
-                            <constraint firstItem="O7O-1Q-c3r" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="Vez-FQ-R9D"/>
+                            <constraint firstItem="NPZ-nS-kbQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" priority="1" id="01d-YU-t79"/>
+                            <constraint firstAttribute="bottom" secondItem="ii9-No-YBL" secondAttribute="bottom" priority="1" id="315-EY-Mz0"/>
+                            <constraint firstItem="61C-7O-sh3" firstAttribute="top" secondItem="O7O-1Q-c3r" secondAttribute="bottom" priority="250" id="DZz-y1-fXe"/>
+                            <constraint firstItem="r6r-Bn-hFK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" priority="1" id="MCR-Ui-1Wk"/>
+                            <constraint firstItem="O7O-1Q-c3r" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" priority="750" id="Vez-FQ-R9D"/>
                             <constraint firstItem="NPZ-nS-kbQ" firstAttribute="top" secondItem="61C-7O-sh3" secondAttribute="bottom" id="WMt-ft-mH2"/>
-                            <constraint firstAttribute="trailing" secondItem="O7O-1Q-c3r" secondAttribute="trailing" id="X0Q-D1-GRy"/>
-                            <constraint firstAttribute="trailing" secondItem="NPZ-nS-kbQ" secondAttribute="trailing" id="hx5-g3-6MP"/>
-                            <constraint firstAttribute="trailing" secondItem="ii9-No-YBL" secondAttribute="trailing" id="i0F-fT-jz8"/>
-                            <constraint firstItem="61C-7O-sh3" firstAttribute="leading" secondItem="r6r-Bn-hFK" secondAttribute="trailing" id="kfB-9Z-jlX"/>
-                            <constraint firstAttribute="bottom" secondItem="r6r-Bn-hFK" secondAttribute="bottom" constant="30" id="lQz-i3-6eR"/>
-                            <constraint firstAttribute="bottom" secondItem="NPZ-nS-kbQ" secondAttribute="bottom" constant="30" id="nHl-yb-vAg"/>
+                            <constraint firstAttribute="trailing" secondItem="O7O-1Q-c3r" secondAttribute="trailing" priority="1" id="X0Q-D1-GRy"/>
+                            <constraint firstAttribute="trailing" secondItem="NPZ-nS-kbQ" secondAttribute="trailing" priority="1" id="hx5-g3-6MP"/>
+                            <constraint firstAttribute="trailing" secondItem="ii9-No-YBL" secondAttribute="trailing" priority="750" id="i0F-fT-jz8"/>
+                            <constraint firstItem="61C-7O-sh3" firstAttribute="leading" secondItem="r6r-Bn-hFK" secondAttribute="trailing" priority="250" id="kfB-9Z-jlX"/>
+                            <constraint firstAttribute="bottom" secondItem="r6r-Bn-hFK" secondAttribute="bottom" priority="1" id="lQz-i3-6eR"/>
+                            <constraint firstAttribute="bottom" secondItem="NPZ-nS-kbQ" secondAttribute="bottom" priority="750" id="nHl-yb-vAg"/>
                             <constraint firstItem="ii9-No-YBL" firstAttribute="leading" secondItem="61C-7O-sh3" secondAttribute="trailing" id="oD0-SZ-McY"/>
-                            <constraint firstItem="ii9-No-YBL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="qiq-Dw-4CT"/>
-                            <constraint firstItem="r6r-Bn-hFK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rhR-oA-WPr"/>
-                            <constraint firstItem="O7O-1Q-c3r" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="u10-H5-MCw"/>
+                            <constraint firstItem="ii9-No-YBL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" priority="1" id="qiq-Dw-4CT"/>
+                            <constraint firstItem="r6r-Bn-hFK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" priority="50" id="rhR-oA-WPr"/>
+                            <constraint firstItem="O7O-1Q-c3r" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" priority="1" id="u10-H5-MCw"/>
                         </constraints>
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="FooterViewLeadingConstraint" destination="01d-YU-t79" id="qbQ-VD-UV4"/>
+                        <outlet property="FooterViewTrailingConstraint" destination="hx5-g3-6MP" id="Mb1-6Y-0TY"/>
+                        <outlet property="HeaderViewTralingConstraint" destination="X0Q-D1-GRy" id="GAM-sj-0MK"/>
                         <outlet property="centralView" destination="61C-7O-sh3" id="vSR-JV-g3l"/>
                         <outlet property="footerView" destination="NPZ-nS-kbQ" id="SQJ-MY-5Mm"/>
                         <outlet property="footerViewConstraintHeigth" destination="caG-EE-e43" id="54n-3j-NJt"/>
+                        <outlet property="heaDerViewLeadingConstraint" destination="u10-H5-MCw" id="iUt-bx-tuK"/>
                         <outlet property="headerView" destination="O7O-1Q-c3r" id="fZZ-Ti-zcy"/>
+                        <outlet property="headerViewBottomConstrait" destination="DZz-y1-fXe" id="xu7-T1-3gL"/>
                         <outlet property="headerViewConstraintHeigth" destination="XW4-q3-dna" id="tHK-CH-l7h"/>
                         <outlet property="leftView" destination="r6r-Bn-hFK" id="XcI-Ee-qf1"/>
+                        <outlet property="leftViewBottomConstraint" destination="lQz-i3-6eR" id="oVv-3C-44x"/>
                         <outlet property="leftViewConstraintWidth" destination="4hF-qN-2lg" id="LCz-FB-MxW"/>
+                        <outlet property="leftViewTopConstraint" destination="MCR-Ui-1Wk" id="MNE-xY-HjR"/>
                         <outlet property="rightView" destination="ii9-No-YBL" id="Jaw-Ad-1q1"/>
+                        <outlet property="rightViewBottomConstraint" destination="315-EY-Mz0" id="29H-SV-eXP"/>
                         <outlet property="rightViewConstraintWidth" destination="cV9-PD-tky" id="kAr-h1-xZa"/>
+                        <outlet property="rightViewTopConstraint" destination="qiq-Dw-4CT" id="NAf-7i-H4M"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
